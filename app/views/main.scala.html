@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String)
 
 <!DOCTYPE html>
 
@@ -6,10 +6,486 @@
     <head>
         <title>@title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/logo-2.jpg")">
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
     <body>
-        @content
+        <div id="doc">
+            <div id="s_hdw">
+
+                <div id="s_tbar">
+                    <div class="s_hd">
+                        <div class="tbar_lft">您好，欢迎来到北邮书店！<a href="@routes.Application.register()">请登录</a> | <a href="@routes.Application.register()">免费注册</a></div>
+                        <div class="tbar_rgt">
+                            <ul>
+                                <li class="first"><a href="#">我的订单</a></li>
+                                <li><a href="#">我的北邮书店</a></li>
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">联系客服</a></li>
+                                <li><a href="#">加入收藏</a></li>
+                                <li class="s_tel_str">服务热线：</li>
+                                <li class="s_tel">400-0000-000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!--s_tbar end-->
+
+                <div class="s_hd nav">
+                    <div id="s_logo"><a href="#"><img src="@routes.Assets.at("images/logo-3.jpg")" border="0" /></a></div>
+                    <div id="s_nav">
+                        <ul>
+                            <li class="first cur"><a href="#">首页</a><span></span></li>
+                            <li><a href="#">个人账户</a><span></span></li>
+                            <li><a href="#">收藏夹</a><span></span></li>
+                            <li class="last"><a href="#">管理员</a><span></span></li>
+                        </ul>
+                    </div>
+                </div><!--s_hd end-->
+
+                <div class="mmenu">
+                    <div class="s_hd">
+                        <div id="s_search">
+                            <form action="" method="post"><input name="" type="text" class="search-input" /><input name="" type="image" src="@routes.Assets.at("images/btn_search.jpg")" /></form>
+                        </div>
+
+                        <div id="s_keyword"> <!--热门搜索-->
+                            <ul>
+                                <li><strong>热门搜索：</strong></li>
+                                <li><a href="#">围城</a></li>
+                                <li><a href="#">1Q84</a></li>
+                            </ul>
+                        </div>
+
+                        <div id="s_cart">
+                            <ul>
+                                <li class="nums"><a href="" id="s_cart_nums1">购物车： <span>0</span>  件</a> <a href="" class="btn" id="s_cart_nums2"></a></li>
+                                <li class="checkout"><a href="#">去结算>></a></li>
+                            </ul>
+                        </div>
+
+                        <div id="s_cartbox" class="s_cartbox">您的购物车中暂无商品，赶快选择心爱的商品吧！</div>
+
+                        <div id="s_cats">
+                            <div class="cat_hd"><h3><a href="#">商品有关</a></h3></div>
+                            <div class="cat_bd" style="display:block;">
+                                <ul>
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link">文艺类</a><span class="s_arrow">></span></h4>
+                                    </li>
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link">人文类</a><span class="s_arrow">></span></h4>
+                                    </li>
+
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link">教育类</a><span class="s_arrow">></span></h4>
+                                    </li>
+
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link">科学类</a><span class="s_arrow">></span></h4>
+                                    </li>
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link">生活类</a><span class="s_arrow">></span></h4>
+                                    </li>
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link">经管类</a><span class="s_arrow">></span></h4>
+                                    </li>
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link"><strong>销售排行</strong></a><span class="s_arrow">></span></h4>
+                                    </li>
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link"><strong>图书上新</strong></a><span class="s_arrow">></span></h4>
+                                    </li>
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link">...</a><span class="s_arrow">></span></h4>
+                                    </li>
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link">...</a><span class="s_arrow">></span></h4>
+                                    </li>
+                                    <li class="cat_item">
+                                        <h4 class="cat_tit"><a href="#" class="cat_tit_link">...</a><span class="s_arrow">></span></h4>
+                                    </li>
+                                </ul>
+                                    <!--<div class="all_cats"><a href="#" class="more">全部商品分类</a></div>-->
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!--mmenu end-->
+
+            </div><!--s_hdw end-->
+
+            <div id="s_bdw">
+                <div id="s_bd">
+                    <div class="cf">
+                        <div id="i_col_lft" class="i_col_lft">
+                            <div class="categories"></div>
+                        </div>
+                        <div id="i_col_rgt" class="i_col_rgt">
+                            <div class="i_col_rgt_box">
+
+                                <div class="i_slides" id="slideshow">
+                                    <div class="i"><a href="#"><img src="@routes.Assets.at("images/slide-1.jpg")" /></a></div>
+                                    <div class="i"><a href="#"><img src="@routes.Assets.at("images/slide-3.jpg")" /></a></div>
+                                    <div class="i"><a href="#"><img src="@routes.Assets.at("images/slide-3.jpg")" /></a></div>
+                                    <div class="i"><a href="#"><img src="@routes.Assets.at("images/slide-4.jpg")" /></a></div>
+                                    <div class="i"><a href="#"><img src="@routes.Assets.at("images/slide-5.jpg")" /></a></div>
+                                </div>
+
+                                <div class="pbt10"></div>
+
+                                <div class="lft">
+                                    <div class="hotp">
+                                        <div class="lft_icon"><a href="#"><span>pre</span></a></div>
+                                        <div class="hot_list">
+                                            <ul>
+                                                <li><a href="#"><img src="@routes.Assets.at("images/f1.jpg")" /></a></li>
+                                                <li><a href="#"><img src="@routes.Assets.at("images/f1.jpg")" /></a></li>
+                                                <li><a href="#"><img src="@routes.Assets.at("images/f1.jpg")" /></a></li>
+                                                <li><a href="#"><img src="@routes.Assets.at("images/f1.jpg")" /></a></li>
+                                                <li><a href="#"><img src="@routes.Assets.at("images/f1.jpg")" /></a></li>
+                                                <li><a href="#"><img src="@routes.Assets.at("images/f1.jpg")" /></a></li>
+                                                <li><a href="#"><img src="@routes.Assets.at("images/f1.jpg")" /></a></li>
+                                                <li><a href="#"><img src="@routes.Assets.at("images/f1.jpg")" /></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="rgt_icon"><a href="#"><span>Nexr</span></a></div>
+                                    </div>
+                                </div>
+
+                                <div class="rgt">
+                                    <div class="rgt-box">
+                                        <div class="loginbox">
+                                            <div class="login_icon cf">
+                                                <ul>
+                                                    <li><a href="@routes.Application.register()">免费注册</a></li>
+                                                    <li><a href="@routes.Application.register()">用户登录</a></li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="announce_top cf"><h3>关注北邮书店<span><a href="#">更多</a></span></h3></div>
+
+                                            <div class="announce_cont">
+                                                <ul>
+                                                    <li><a href="#">北邮书店圣诞促销活动24号开始</a></li>
+                                                    <li><a href="#">迎新年，上品轩专卖店开业</a></li>
+                                                    <li><a href="#">贺北邮书店全南店盛大开业</a></li>
+                                                    <li><a href="#">书店网上商城的会员特权</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="channel_0" class="i_channels cf">
+                        <div class="i_channels_tit">
+                            <div class="i_channels_cat_title"><h3 class="cf1">新书速递</h3></div>
+                            <div class="i_channels_brand">
+                                <ul>
+                                    <li class="first"><a href="#">Javascript</a></li>
+                                    <li><a href="#">Javascript</a></li>
+                                    <li><a href="#">Javascript</a></li>
+                                    <li><a href="#">更多</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="i_channels_cont">
+                            <div class="channel_lft">
+                                <div class="big_ad_box"><a href="#"><img src="img/cat_ad1.jpg" border="0" /></a></div>
+                            </div>
+
+                            <div class="channel_mid">
+                                <div class="cat_list_box">
+                                    <ul>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-01.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">一个人的朝圣</a></div>
+                                                <div class="list_price">¥68.8</div>
+                                                <div class="price">¥48.1</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-02.jpg")" /></a></div>
+                                                <div class="ptitle"><a href="#">褚时健传</a></div>
+                                                <div class="list_price">¥58.0</div>
+                                                <div class="price">¥42.8</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-03.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">白岩松：白说</a></div>
+                                                <div class="list_price">¥39.8</div>
+                                                <div class="price">¥23.9</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-04.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">爱因斯坦 想象颠覆世界 </a></div>
+                                                <div class="list_price">¥42.0</div>
+                                                <div class="price">¥27.3</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="channel_rgt">
+                                <div class="small_ad_box">
+                                    <ul>
+                                        <li><a href="#"><img src="img/cat_s_ad1.jpg" border="0" /></a></li>
+                                        <li><a href="#"><img src="img/cat_s_ad2.jpg" border="0" /></a></li>
+                                        <li><a href="#"><img src="img/cat_s_ad3.jpg" border="0" /></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="channel_1" class="i_channels cf">
+                        <div class="i_channels_tit">
+                            <div class="i_channels_cat_title"><h3 class="cf2">销售排行</h3></div>
+                            <div class="i_channels_brand">
+                                <ul>
+                                    <li class="first"><a href="#">C语言</a></li>
+                                    <li><a href="#">C语言</a></li>
+                                    <li><a href="#">C语言</a></li>
+                                    <li><a href="#">C语言</a></li>
+                                    <li><a href="#">更多</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="i_channels_cont">
+                            <div class="channel_lft">
+                                <div class="big_ad_box"><a href="#"><img src="img/cat_ad2.jpg" border="0" /></a></div>
+                            </div>
+                            <div class="channel_mid">
+                                <div class="cat_list_box">
+                                    <ul>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-03.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">白岩松：白说</a></div>
+                                                <div class="list_price">¥39.8</div>
+                                                <div class="price">¥23.9</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-03.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">白岩松：白说</a></div>
+                                                <div class="list_price">¥39.8</div>
+                                                <div class="price">¥23.9</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-03.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">白岩松：白说</a></div>
+                                                <div class="list_price">¥39.8</div>
+                                                <div class="price">¥23.9</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-03.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">白岩松：白说</a></div>
+                                                <div class="list_price">¥39.8</div>
+                                                <div class="price">¥23.9</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="channel_rgt">
+                                <div class="small_ad_box">
+                                    <ul>
+                                        <li><a href="#"><img src="img/cat_s_2-1.jpg" width="208" height="63" border="0" /></a></li>
+                                        <li><a href="#"><img src="img/cat_s_2-2.jpg" width="208" height="63" border="0" /></a></li>
+                                        <li><a href="#"><img src="img/cat_s_ad_2_3.jpg" width="203" height="98" border="0" /></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="channel_2" class="i_channels cf">
+                        <div class="i_channels_tit">
+                            <div class="i_channels_cat_title"><h3 class="cf3">收藏排行</h3></div>
+                            <div class="i_channels_brand">
+                                <ul>
+                                    <li class="first"><a href="#">Scala</a></li>
+                                    <li><a href="#">Scala</a></li>
+                                    <li><a href="#">Scala</a></li>
+                                    <li><a href="#">Scala</a></li>
+                                    <li><a href="#">更多</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="i_channels_cont">
+                            <div class="channel_lft">
+                                <div class="big_ad_box"><a href="#"><img src="img/cat_ad3.jpg" border="0" /></a></div>
+                            </div>
+
+                            <div class="channel_mid">
+                                <div class="cat_list_box">
+                                    <ul>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-03.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">白岩松：白说</a></div>
+                                                <div class="list_price">¥39.8</div>
+                                                <div class="price">¥23.9</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-03.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">白岩松：白说</a></div>
+                                                <div class="list_price">¥39.8</div>
+                                                <div class="price">¥23.9</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-03.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">白岩松：白说</a></div>
+                                                <div class="list_price">¥39.8</div>
+                                                <div class="price">¥23.9</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cat_pd">
+                                                <div class="pic"><a href="#"><img src="@routes.Assets.at("images/books/1-03.jpg")" border="0" /></a></div>
+                                                <div class="ptitle"><a href="#">白岩松：白说</a></div>
+                                                <div class="list_price">¥39.8</div>
+                                                <div class="price">¥23.9</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="channel_rgt">
+                                <div class="small_ad_box">
+                                    <ul>
+                                        <li><a href="#"><img src="img/cat_s_ad3-1.jpg" border="0" /></a></li>
+                                        <li><a href="#"><img src="img/cat_s_ad3-2.jpg" border="0" /></a></li>
+                                        <li><a href="#"><img src="img/cat_s_ad3-3.jpg" border="0" /></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div><!--s_bdw end-->
+
+            <div id="s_ftw">
+
+                <div class="ft_quicklinks">
+                    <div class="ftql cf">
+                        <ul>
+                            <li class="ftql_s">
+                                <h3>购物指南</h3>
+                                <ul>
+                                    <li><a href="">怎样购物</a></li>
+                                    <li><a href="">会员制</a></li>
+                                    <li><a href="">积分制度</a></li>
+                                    <li><a href="">优惠券介绍</a></li>
+                                    <li><a href="">订单状态说明</a></li>
+                                </ul>
+                            </li>
+                            <li class="ftql_s">
+                                <h3>服务条款</h3>
+                                <ul>
+                                    <li><a href="">售后条款</a></li>
+                                    <li><a href="">退换货说明</a></li>
+                                    <li><a href="">联系客服</a></li>
+                                </ul>
+                            </li>
+                            <li class="ftql_s">
+                                <h3>配送方式</h3>
+                                <ul>
+                                    <li><a href="">上门自提</a></li>
+                                    <li><a href="">快递运输</a></li>
+                                    <li><a href="">特快专递（EMS）</a></li>
+                                    <li><a href="">如何送礼</a></li>
+                                </ul>
+                            </li>
+                            <li class="ftql_s">
+                                <h3>支付帮助</h3>
+                                <ul>
+                                    <li><a href="">货到付款</a></li>
+                                    <li><a href="">在线支付</a></li>
+                                    <li><a href="">邮政汇款</a></li>
+                                    <li><a href="">银行转账</a></li>
+                                    <li><a href="">发票说明</a></li>
+                                </ul>
+                            </li>
+                            <li class="ftql_s">
+                                <h3>关于北邮书店</h3>
+                                <ul>
+                                    <li><a href="">北邮书店介绍</a></li>
+                                    <li><a href="">团队</a></li>
+                                    <li><a href="">媒体报道</a></li>
+                                    <li><a href="">招纳贤士</a></li>
+                                    <li><a href="">公告</a></li>
+                                </ul>
+                            </li>
+                            <li class="ftql_s">
+                                <div class="ftql_d">
+                                    <div class="str">客服中心信箱：</div>
+                                    <div class="val"></div>
+                                </div>
+                                <div class="ftql_d">
+                                    <div class="str">客服中心热线：</div>
+                                    <div class="val stel">4000-000-000</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="s_ft">
+                    <div class="ft_suggest pt100">请帮助我们提高！<a href="#">商城首页意见反馈</a></div>
+                    <div class="ft_banners1 tac pbt10">
+                        <ul>
+                            <li><a href="#"><img src="@routes.Assets.at("images/ft_1.gif")" border="0" /></a></li>
+                            <li><a href="#"><img src="@routes.Assets.at("images/ft_2.gif")" border="0" /></a></li>
+                            <li><a href="#"><img src="@routes.Assets.at("images/ft_3.gif")" border="0" /></a></li>
+                        </ul>
+                    </div>
+                    <div class="copyright tac pbt10">版权所有 Copyright&copy; 图书商城 All Rights Reserved 版权所有 北邮书店首页 </div>
+                    <div class="ft_banners2 tac">
+                        <ul>
+                            <li><a href="#"><img src="@routes.Assets.at("images/u255.png")" border="0" /></a></li>
+                            <li><a href="#"><img src="@routes.Assets.at("images/u257.png")" border="0" /></a></li>
+                            <li><a href="#"><img src="@routes.Assets.at("images/u259.png")" border="0" /></a></li>
+                            <li><a href="#"><img src="@routes.Assets.at("images/u261.png")" border="0" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div><!--s_ftw end-->
+
+        </div>
     </body>
 </html>
