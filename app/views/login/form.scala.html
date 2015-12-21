@@ -1,0 +1,39 @@
+@(loginForm: Form[Login])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@title = {
+    Login  <small><a href="@routes.SignUp.form">You don`t have an account yet</a></small>
+}
+
+@register(title, nav = "login") {
+
+    @helper.form(action = routes.LogIn.submits) {
+
+        <fieldset>
+            <legend>Login information</legend>
+
+            @inputText(
+                loginForm("username"),
+                '_label -> "Username",          //名字
+                '_help -> "Please input your username.",
+                '_error -> loginForm.globalError
+            )
+
+            @inputPassword(
+                loginForm("password"),
+                '_label -> "Password",
+                '_help -> "Please input your password. "
+            )
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" class="btn primary" value="Login">
+            <a href="@routes.Application.index" class="btn">Cancel</a>
+        </div>
+
+    }
+
+}

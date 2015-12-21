@@ -1,0 +1,88 @@
+@(signupForm: Form[User])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@title = {
+    Sign Up  <small><a href="@routes.LogIn.form">You`ve alredy have an account</a></small>
+}
+
+@register(title, nav = "signup") {
+
+    @helper.form(action = routes.SignUp.submit) {
+
+        <fieldset>
+            <legend>Account information</legend>
+
+            @inputText(
+                signupForm("username"),
+                '_label -> "Username",          //名字
+                '_help -> "Please choose a valid username.",
+                '_error -> signupForm.globalError
+            )
+
+            @inputText(
+                signupForm("email"),
+                '_label -> "Email",
+                '_help -> "Enter a valid email address."
+            )
+
+            @inputPassword(
+                signupForm("password.main"),
+                '_label -> "Password",
+                '_help -> "A password must be at least 6 characters. "
+            )
+
+            @inputPassword(
+                signupForm("password.confirm"),
+                '_label -> "Repeat password",
+                '_help -> "Please repeat your password again.",
+                '_error -> signupForm.error("password")
+            )
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>Contact information</legend>
+
+            @select(
+                signupForm("profile.country"),
+                options = options(Sex.list),
+                '_default -> "--- 请选择您的性别 ---",
+                '_label -> "Sex",
+                '_error -> signupForm("profile.country").error.map(_.withMessage("Please select your country"))
+            )
+
+            @textarea(
+                signupForm("profile.address"),
+                '_label -> "Telephone",
+                'cols -> 50
+            )
+
+            @inputText(
+                signupForm("profile.age"),
+                '_label -> "Age", 'class -> "mini",
+                '_showConstraints -> false
+            )
+
+        </fieldset>
+
+        <fieldset>
+
+        @checkbox(
+            signupForm("accept"),
+            '_label -> None, '_text -> "You agree to the terms and conditions",
+            '_showConstraints -> false
+        )
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" class="btn primary" value="Sign Up">
+            <a href="@routes.Application.index" class="btn">Cancel</a>
+        </div>
+
+    }
+
+}
