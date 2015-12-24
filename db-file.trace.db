@@ -10,3 +10,6 @@ SELECT userpwd FROM userinfo WHERE username = ? [42102-175]
 12-21 15:22:09 jdbc[6]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERINFO" not found; SQL statement:
 SELECT userpwd FROM userinfo WHERE username = ? [42102-175]
+12-24 13:52:33 jdbc[102]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+select * from user [42102-175]
