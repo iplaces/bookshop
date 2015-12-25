@@ -69,16 +69,18 @@ object SignUp extends Controller{
     Ok(html.signup.form(signupForm.fill(existingUser)))
   }
 
-  /**
-   * Handle form submission.
-   */
+
   def submit = Action { implicit request =>
     signupForm.bindFromRequest.fold(
       // Form has errors, redisplay it
       errors => BadRequest(html.signup.form(errors)),
 
       // We got a valid User value, display the summary
-      user => Ok(html.signup.form(signupForm))   //Ok(html.signup.summary(user)   //源代码为显示提交信息，这里需要修改
+      user => {
+        val temp = user
+      //  User.create(temp)
+        Ok(html.signup.form(signupForm))
+      }   //Ok(html.signup.summary(user)   //源代码为显示提交信息，这里需要修改
     )
   }
 

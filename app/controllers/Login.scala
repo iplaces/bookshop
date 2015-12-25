@@ -36,8 +36,6 @@ object LogIn extends Controller{
     )
   )
 
-
-
   def submits = Action { implicit request =>
     loginForm.bindFromRequest.fold(
       errors => BadRequest(html.login.form(errors, true)),
@@ -45,7 +43,7 @@ object LogIn extends Controller{
         val user = labels.username
         val pass = labels.password
 
-        if(Login.find(user) != null){
+        if(Login.find(user) != null && labels.password==Login.find(user).password){
           val temp = Login.find(user)
           Redirect(routes.Application.index).withSession(
             "username" -> temp.username,
@@ -62,14 +60,6 @@ object LogIn extends Controller{
 
   def form = Action {
     Ok(html.login.form(loginForm, true))
-  }
-
-  def submit = Action { implicit request =>
-    loginForm.bindFromRequest.fold(
-      errors => BadRequest(html.login.form(errors, true)),
-
-      user => Ok(html.login.form(loginForm, true))   //Ok(html.signup.summary(user)   //源代码为显示提交信息，这里需要修改
-    )
   }
 
   //显示页面
