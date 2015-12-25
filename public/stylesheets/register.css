@@ -77,3 +77,9 @@ body {
 .phone_template, .profile_template {
     display: none;
 }
+
+#p-check {
+    color: #b94a48;
+    text-align: right;
+    width: 260px;
+}

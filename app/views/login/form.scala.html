@@ -1,4 +1,4 @@
-@(loginForm: Form[Login])
+@(loginForm: Form[Login], trueOrfalse: Boolean)
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -26,9 +26,16 @@
                 '_label -> "Password",
                 '_help -> "Please input your password. "
             )
-
+            <p id="p-check"></p>
         </fieldset>
 
+        <script>
+
+            if(@trueOrfalse == false) {
+                var p = document.getElementById('p-check');
+                p.innerHTML = '用户名或密码错误';
+            }
+        </script>
         <div class="actions">
             <input type="submit" class="btn primary" value="Login">
             <a href="@routes.Application.index" class="btn">Cancel</a>

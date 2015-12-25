@@ -5,8 +5,12 @@ import play.api.mvc._
 
 object Application extends Controller {
 
-  def index = Action {
-    Ok(views.html.index())
+  def index = Action { implicit request =>
+    val user = request.session.get("username")
+    user match {
+      case None=> Ok(views.html.index(""))
+      case Some(a) => Ok(views.html.index(a))
+    }
   }
 
 }
