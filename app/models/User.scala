@@ -23,20 +23,22 @@ case class UserProfile(
                         address: Option[String],
                         age: Option[Int]
                         )
-//object User{
+object User{
 //  def all():List[User] = DB.withConnection {  implicit c =>
 //    SQL("select * from userinfo").as(user *)
 //  }
-//  def create(info:User) {
-//    DB.withConnection { implicit c =>
-//      SQL("insert into userinfo (username, password, email) values ({username}, {password}, {email})").on(
-//        'username -> info.username,
-//        'password -> info.password,
-//        'email -> info.email
-//      ).executeUpdate()
-//    }
-//  }
-//
+  def create(info:User) {
+    DB.withConnection { implicit c =>
+      SQL("insert into userinfo (username, userpwd, usermail, usergender, userage) values ({username}, {password}, {email}), {sex}, {age}").on(
+        'username -> info.username,
+        'password -> info.password,
+        'email -> info.email,
+        'sex -> info.profile.sex,
+        'age -> info.profile.age
+      ).executeUpdate()
+    }
+  }
+
 //  val user = {
 //      get[String]("username") ~
 //      get[String]("userpwd") ~
@@ -45,4 +47,4 @@ case class UserProfile(
 //      case username~password~email~profile => User(username, password, email, profile)
 //    }
 //  }
-//}
+}
