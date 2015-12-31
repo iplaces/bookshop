@@ -13,4 +13,10 @@ object Application extends Controller {
     }
   }
 
+  def logout = Action {
+    Redirect(routes.Application.index()).withSession(
+      "username" -> ""
+    )
+  }
+
 }

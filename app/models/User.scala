@@ -20,7 +20,7 @@ case class User(
 
 case class UserProfile(
                         sex: String,
-                        address: Option[String],
+                        telephone: Option[String],
                         age: Option[Int]
                         )
 object User{
@@ -28,12 +28,17 @@ object User{
 //    SQL("select * from userinfo").as(user *)
 //  }
   def create(info:User) {
+    val sex = info.profile.sex match {
+      case "男" => 0
+      case "女" => 1
+    }
     DB.withConnection { implicit c =>
-      SQL("insert into userinfo (username, userpwd, usermail, usergender, userage) values ({username}, {password}, {email}), {sex}, {age}").on(
+      SQL("insert into userinfo (username, userpwd, usermail, usergender, usertel, userage) values ({username}, {password}, {email}, {sex}, {telephone}, {age})").on(
         'username -> info.username,
         'password -> info.password,
         'email -> info.email,
-        'sex -> info.profile.sex,
+        'sex -> sex,
+        'telephone -> info.profile.telephone,
         'age -> info.profile.age
       ).executeUpdate()
     }

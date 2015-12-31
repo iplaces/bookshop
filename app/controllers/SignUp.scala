@@ -31,8 +31,8 @@ object SignUp extends Controller{
       ),
 
       "profile" -> mapping(
-        "country" -> nonEmptyText,
-        "address" -> optional(text),
+        "sex" -> nonEmptyText,
+        "telephone" -> optional(text),
         "age" -> optional(number(min = 1, max = 100))
       )
 
@@ -53,34 +53,23 @@ object SignUp extends Controller{
     )
   )
 
-
   def form = Action {
     Ok(html.signup.form(signupForm));
   }
 
-  /**
-   * Display a form pre-filled with an existing User.
-   */
-  def editForm = Action {
-    val existingUser = User(
-      "fakeuser", "secret", "fake@gmail.com",
-      UserProfile("France", None, Some(30))
-    )
-    Ok(html.signup.form(signupForm.fill(existingUser)))
-  }
-
-
   def submit = Action { implicit request =>
     signupForm.bindFromRequest.fold(
-      // Form has errors, redisplay it
       errors => BadRequest(html.signup.form(errors)),
-
-      // We got a valid User value, display the summary
       user => {
         val temp = user
-      //  User.create(temp)
-        Ok(html.signup.form(signupForm))
-      }   //Ok(html.signup.summary(user)   //源代码为显示提交信息，这里需要修改
+        println("1")
+        User.create(temp)
+        println("2")
+        Redirect(routes.Application.index()).withSession(
+          "username" -> temp.username,
+          "timestamp" -> System.currentTimeMillis.toString
+        )
+      }
     )
   }
 

@@ -13,3 +13,15 @@ SELECT userpwd FROM userinfo WHERE username = ? [42102-175]
 12-24 13:52:33 jdbc[102]: exception
 org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
 select * from user [42102-175]
+12-31 10:43:04 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO USERINFO (USERNAME, USERPWD, USERMAIL, USERGENDER, USERTEL, USERAGE) VALUES (?, ?, ?), ?[*], ?, ? "; SQL statement:
+insert into userinfo (username, userpwd, usermail, usergender, usertel, userage) values (?, ?, ?), ?, ?, ? [42000-175]
+12-31 10:48:26 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO USERINFO (USERNAME, USERPWD, USERMAIL, USERGENDER, USERTEL, USERAGE) VALUES (?, ?, ?), ?[*], ?, ? "; SQL statement:
+insert into userinfo (username, userpwd, usermail, usergender, usertel, userage) values (?, ?, ?), ?, ?, ? [42000-175]
+12-31 10:49:20 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO USERINFO (USERNAME, USERPWD, USERMAIL, USERGENDER, USERTEL, USERAGE) VALUES (?, ?, ?), ?[*], ?, ?) "; SQL statement:
+insert into userinfo (username, userpwd, usermail, usergender, usertel, userage) values (?, ?, ?), ?, ?, ?) [42000-175]
+12-31 10:49:53 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "STRINGDECODE('\u7537') (USERINFO: USERGENDER NUMBER)"; SQL statement:
+insert into userinfo (username, userpwd, usermail, usergender, usertel, userage) values (?, ?, ?, ?, ?, ?) -- (?1, ?2, ?3, ?4, ?5, ?6) [22018-175]

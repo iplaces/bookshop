@@ -47,17 +47,17 @@
             <legend>Contact information</legend>
 
             @select(
-                signupForm("profile.country"),
+                signupForm("profile.sex"),
                 options = options(Sex.list),
                 '_default -> "--- 请选择您的性别 ---",
                 '_label -> "Sex",
-                '_error -> signupForm("profile.country").error.map(_.withMessage("Please select your country"))
+                '_error -> signupForm("profile.sex").error.map(_.withMessage("Please select your sex"))
             )
 
             @textarea(
-                signupForm("profile.address"),
+                signupForm("profile.telephone"),
                 '_label -> "Telephone",
-                'cols -> 50
+                'cols -> 15
             )
 
             @inputText(

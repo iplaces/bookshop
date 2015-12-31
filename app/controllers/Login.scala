@@ -45,7 +45,7 @@ object LogIn extends Controller{
 
         if(Login.find(user) != null && labels.password==Login.find(user).password){
           val temp = Login.find(user)
-          Redirect(routes.Application.index).withSession(
+          Redirect(routes.Application.index()).withSession(
             "username" -> temp.username,
             "timestamp" -> System.currentTimeMillis.toString
           )
@@ -54,7 +54,6 @@ object LogIn extends Controller{
         }
       }
     )
-
 
   }
 

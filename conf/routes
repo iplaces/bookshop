@@ -4,15 +4,16 @@
 
 # Home page
 GET     /                           controllers.Application.index
+GET     /logout                     controllers.Application.logout
 
 # Signup
 GET     /signup                     controllers.SignUp.form
-GET     /users/fakeuser             controllers.SignUp.editForm
 POST    /signup                     controllers.SignUp.submit
 # Login
 GET     /login                      controllers.LogIn.form
 POST    /login                      controllers.LogIn.submits
 GET     /login/:user                controllers.LogIn.show(user:String)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
