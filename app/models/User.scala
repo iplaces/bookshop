@@ -20,13 +20,13 @@ case class User(
 
 case class UserProfile(
                         sex: String,
-                        telephone: Option[String],
+                        telephone: Option [String],
                         age: Option[Int]
                         )
 object User{
-//  def all():List[User] = DB.withConnection {  implicit c =>
-//    SQL("select * from userinfo").as(user *)
-//  }
+  def all():List[User] = DB.withConnection {  implicit c =>
+    SQL("select * from userinfo").as(user *)
+  }
   def create(info:User) {
     val sex = info.profile.sex match {
       case "男" => 0
@@ -44,12 +44,24 @@ object User{
     }
   }
 
-//  val user = {
-//      get[String]("username") ~
-//      get[String]("userpwd") ~
-//      get[String]("email") ~
-//      get[UserProfile]("profile")  map {
-//      case username~password~email~profile => User(username, password, email, profile)
-//    }
-//  }
+  def userCheck(username:String):Boolean = {
+      if(all().count(_.username == username) == 1) {
+        true
+      } else {
+        false
+      }
+  }
+
+  val user = {
+
+      get[String]("username") ~
+      get[String]("userpwd") ~
+      get[String]("usermail") ~
+      get[String]("usergender") ~
+      get[Option[String]]("usertel") ~
+      get[Option[Int]]("userage")  map {
+        case username~userpwd~usermail~usergender~usertel~userage => User(username, userpwd, usermail, UserProfile(usergender, usertel, userage))
+    }
+
+  }
 }

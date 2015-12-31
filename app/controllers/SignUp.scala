@@ -49,7 +49,7 @@ object SignUp extends Controller{
       user => Some(user.username, user.email, (user.password, ""), user.profile, false)
     }.verifying(
       "This username is not available",
-      user => !Seq("admin", "guest").contains(user.username)
+      user => User.userCheck(user.username)
     )
   )
 
