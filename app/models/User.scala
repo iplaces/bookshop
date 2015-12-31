@@ -19,25 +19,22 @@ case class User(
                  )
 
 case class UserProfile(
-                        sex: String,
+                        sex: Int,
                         telephone: Option [String],
                         age: Option[Int]
                         )
+
 object User{
   def all():List[User] = DB.withConnection {  implicit c =>
     SQL("select * from userinfo").as(user *)
   }
   def create(info:User) {
-    val sex = info.profile.sex match {
-      case "男" => 0
-      case "女" => 1
-    }
     DB.withConnection { implicit c =>
       SQL("insert into userinfo (username, userpwd, usermail, usergender, usertel, userage) values ({username}, {password}, {email}, {sex}, {telephone}, {age})").on(
         'username -> info.username,
         'password -> info.password,
         'email -> info.email,
-        'sex -> sex,
+        'sex -> info.profile.sex,
         'telephone -> info.profile.telephone,
         'age -> info.profile.age
       ).executeUpdate()
@@ -46,9 +43,9 @@ object User{
 
   def userCheck(username:String):Boolean = {
       if(all().count(_.username == username) == 1) {
-        true
-      } else {
         false
+      } else {
+        true
       }
   }
 
@@ -57,7 +54,7 @@ object User{
       get[String]("username") ~
       get[String]("userpwd") ~
       get[String]("usermail") ~
-      get[String]("usergender") ~
+      get[Int]("usergender") ~
       get[Option[String]]("usertel") ~
       get[Option[Int]]("userage")  map {
         case username~userpwd~usermail~usergender~usertel~userage => User(username, userpwd, usermail, UserProfile(usergender, usertel, userage))

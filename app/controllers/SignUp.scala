@@ -31,7 +31,7 @@ object SignUp extends Controller{
       ),
 
       "profile" -> mapping(
-        "sex" -> nonEmptyText,
+        "sex" -> number,
         "telephone" -> optional(text),
         "age" -> optional(number(min = 1, max = 100))
       )

@@ -51,10 +51,11 @@
                 options = options(Sex.list),
                 '_default -> "--- 请选择您的性别 ---",
                 '_label -> "Sex",
+                '_help -> "0-man 1-woman.",
                 '_error -> signupForm("profile.sex").error.map(_.withMessage("Please select your sex"))
             )
 
-            @textarea(
+            @inputText(
                 signupForm("profile.telephone"),
                 '_label -> "Telephone",
                 'cols -> 15
