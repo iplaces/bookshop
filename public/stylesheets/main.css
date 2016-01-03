@@ -106,7 +106,7 @@ a.more{color:#C11125;}
 .i_channels_cont{padding:4px 0;}
 .i_channels_cont .channel_lft,.i_col_lft{float:left;width:207px;}
 .i_channels_cont .channel_rgt{float:right;width:210px;}
-.i_channels_cont .channel_mid{float:left;width:563px;}
+.i_channels_cont .channel_mid{float:left;/*width:563px;*/}
 .i_channels_cont .cat_list_box{padding:0 10px 0 9px;}
 .cat_list_box li{float:left;width:136px;overflow:hidden;}
 .cat_list_box .cat_pd{width:136px;}
