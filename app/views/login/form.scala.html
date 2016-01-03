@@ -4,7 +4,7 @@
 @import helper.twitterBootstrap._
 
 @title = {
-    Login  <small><a href="@routes.SignUp.form">You don`t have an account yet</a></small>
+    登陆  <small><a href="@routes.SignUp.form">还没有账号</a></small>
 }
 
 @register(title, nav = "login") {
@@ -12,19 +12,19 @@
     @helper.form(action = routes.LogIn.submits) {
 
         <fieldset>
-            <legend>Login information</legend>
+            <legend>用户信息</legend>
 
             @inputText(
                 loginForm("username"),
-                '_label -> "Username",          //名字
-                '_help -> "Please input your username.",
+                '_label -> "用户名",          //名字
+                '_help -> "请输入您的用户名.",
                 '_error -> loginForm.globalError
             )
 
             @inputPassword(
                 loginForm("password"),
-                '_label -> "Password",
-                '_help -> "Please input your password. "
+                '_label -> "密码",
+                '_help -> "请输入您的密码. "
             )
             <p id="p-check"></p>
         </fieldset>

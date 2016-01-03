@@ -16,13 +16,13 @@
         <div class="topbar">
             <div class="fill">
                 <div class="container">
-                    <a class="brand" href="@routes.Application.index()">Home</a>
+                    <a class="brand" href="@routes.Application.index()">主页</a>
                     <ul class="nav">
                         <li class="@("active".when(nav == "signup"))">
-                            <a href="@routes.SignUp.form">Sign up</a>
+                            <a href="@routes.SignUp.form">注册</a>
                         </li>
                         <li class="@("active".when(nav == "login"))">
-                            <a href="@routes.LogIn.form">Login</a>  @*这里需要改为登陆信息*@
+                            <a href="@routes.LogIn.form">登陆</a>  @*这里需要改为登陆信息*@
                         </li>
                     </ul>
                 </div>

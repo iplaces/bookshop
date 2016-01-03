@@ -27,7 +27,7 @@ object SignUp extends Controller{
         "main" -> text(minLength = 6),
         "confirm" -> text
       ).verifying(
-        "Passwords don't match", passwords => passwords._1 == passwords._2
+        "两次输入的密码不一致", passwords => passwords._1 == passwords._2
       ),
 
       "profile" -> mapping(
@@ -38,7 +38,7 @@ object SignUp extends Controller{
 
       (UserProfile.apply)(UserProfile.unapply),
 
-      "accept" -> checked("You must accept the conditions")
+      "accept" -> checked("你必须同意条款")
 
     )
 

@@ -4,7 +4,7 @@
 @import helper.twitterBootstrap._
 
 @title = {
-    Sign Up  <small><a href="@routes.LogIn.form">You`ve alredy have an account</a></small>
+    注册  <small><a href="@routes.LogIn.form">已有账号</a></small>
 }
 
 @register(title, nav = "signup") {
@@ -12,31 +12,31 @@
     @helper.form(action = routes.SignUp.submit) {
 
         <fieldset>
-            <legend>Account information</legend>
+            <legend>新用户注册</legend>
 
             @inputText(
                 signupForm("username"),
-                '_label -> "Username",          //名字
-                '_help -> "Please choose a valid username.",
+                '_label -> "用户名",          //名字
+                '_help -> "请输入您要注册的用户名.",
                 '_error -> signupForm.globalError
             )
 
             @inputText(
                 signupForm("email"),
-                '_label -> "Email",
-                '_help -> "Enter a valid email address."
+                '_label -> "邮箱",
+                '_help -> "请输入您的邮箱号."
             )
 
             @inputPassword(
                 signupForm("password.main"),
-                '_label -> "Password",
-                '_help -> "A password must be at least 6 characters. "
+                '_label -> "登陆密码",
+                '_help -> "密码至少为6个字符. "
             )
 
             @inputPassword(
                 signupForm("password.confirm"),
-                '_label -> "Repeat password",
-                '_help -> "Please repeat your password again.",
+                '_label -> "确认密码",
+                '_help -> "请再次输入密码.",
                 '_error -> signupForm.error("password")
             )
 
@@ -44,26 +44,26 @@
 
         <fieldset>
 
-            <legend>Contact information</legend>
+            <legend>个人信息</legend>
 
             @select(
                 signupForm("profile.sex"),
                 options = options(Sex.list),
                 '_default -> "--- 请选择您的性别 ---",
-                '_label -> "Sex",
-                '_help -> "0-man 1-woman.",
-                '_error -> signupForm("profile.sex").error.map(_.withMessage("Please select your sex"))
+                '_label -> "性别",
+                '_help -> "0-男 1-女.",
+                '_error -> signupForm("profile.sex").error.map(_.withMessage("请选择您的性别"))
             )
 
             @inputText(
                 signupForm("profile.telephone"),
-                '_label -> "Telephone",
+                '_label -> "手机号码",
                 'cols -> 15
             )
 
             @inputText(
                 signupForm("profile.age"),
-                '_label -> "Age", 'class -> "mini",
+                '_label -> "年龄", 'class -> "mini",
                 '_showConstraints -> false
             )
 
@@ -73,7 +73,7 @@
 
         @checkbox(
             signupForm("accept"),
-            '_label -> None, '_text -> "You agree to the terms and conditions",
+            '_label -> None, '_text -> "我已阅读并同意条款",
             '_showConstraints -> false
         )
 
