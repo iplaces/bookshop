@@ -9,6 +9,106 @@
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/logo-2.jpg")">
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
         <script src="@routes.Assets.at("javascripts/edit.js")" type="text/javascript"></script>
+        <script type="text/javascript">
+            var timeout	= 500;
+            var closetimer	= 0;
+            var ddmenuitem	= 0;
+
+            $(document).ready(function(){
+                $('.cat_item').mousemove(function(){
+                    $(this).addClass('cat_item_on');
+                });
+                $('.cat_item').mouseleave(function(){
+                    $(this).removeClass('cat_item_on');
+                });
+                $('#slideshow').imgSlideShow({itemclass: 'i'})
+                $("#slide-qg").switchTab({titCell: "dt a", trigger: "mouseover", delayTime: 0});
+                $("#s_cart_nums1").hover(function(){
+                    mcancelclosetime();
+                    if(ddmenuitem) ddmenuitem.hide();
+                    ddmenuitem = $(document).find("#s_cartbox");
+                    ddmenuitem.fadeIn();
+                },function(){
+                    mclosetime();
+                });
+                $("#s_cart_nums2").hover(function(){
+                    mcancelclosetime();
+                    if(ddmenuitem) ddmenuitem.hide();
+                    ddmenuitem = $(document).find("#s_cartbox");
+                    ddmenuitem.fadeIn();
+                },function(){
+                    mclosetime();
+                });
+                $("#s_cartbox").hover(function(){
+                    mcancelclosetime();
+                },function(){
+                    mclosetime();
+                });
+                 var $cur = 1;
+                var $i = 4;
+                var $len = $('.hot_list>ul>li').length;
+                var $pages = Math.ceil($len / $i);
+                var $w = $('.hotp').width()-66;
+
+                var $showbox = $('.hot_list');
+
+                var $pre = $('div.left_icon');
+                var $next = $('div.rgt_icon');
+
+                $pre.click(function(){
+                    if (!$showbox.is(':animated')) {
+                        if ($cur == 1) {
+                            $showbox.animate({
+                                left: '-=' + $w * ($pages - 1)
+                            }, 500);
+                            $cur = $pages;
+                        }
+                        else {
+                            $showbox.animate({
+                                left: '+=' + $w
+                            }, 500);
+                            $cur--;
+                        }
+
+                    }
+                });
+
+                $next.click(function(){
+                    if (!$showbox.is(':animated')) {
+                        if ($cur == $pages) {
+                            $showbox.animate({
+                                left: 0
+                            }, 500);
+                            $cur = 1;
+                        }
+                        else {
+                            $showbox.animate({
+                                left: '-=' + $w
+                            }, 500);
+                            $cur++;
+                        }
+
+                    }
+                });
+
+            });
+            function mclose()
+            {
+                if(ddmenuitem) ddmenuitem.hide();
+            }
+            function mclosetime()
+            {
+                closetimer = window.setTimeout(mclose, timeout);
+            }
+            function mcancelclosetime()
+            {
+                if(closetimer)
+                {
+                    window.clearTimeout(closetimer);
+                    closetimer = null;
+                }
+            }
+        </script>
     </head>
     <body>
         <div id="doc"><p id="name-check" style="display:none;">@name</p>
@@ -73,6 +173,7 @@
                                 <ul>
                                     <li class="cat_item">
                                         <h4 class="cat_tit"><a href="#" class="cat_tit_link">文艺类</a><span class="s_arrow">></span></h4>
+
                                     </li>
                                     <li class="cat_item">
                                         <h4 class="cat_tit"><a href="#" class="cat_tit_link">人文类</a><span class="s_arrow">></span></h4>
@@ -93,9 +194,69 @@
                                     </li>
                                     <li class="cat_item">
                                         <h4 class="cat_tit"><a href="#" class="cat_tit_link"><strong>销售排行</strong></a><span class="s_arrow">></span></h4>
+                                        <div class="cat_cont">
+                                            <div class="cat_cont_lft">
+                                                <dl class="cf">
+                                                    <dt><a href="#">文艺类排行</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">人文类排行</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">教育类排行</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">科学类排行</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">生活类排行</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">经管类排行</a></dt>
+                                                </dl>
+
+                                            </div>
+
+
+                                        </div>
                                     </li>
                                     <li class="cat_item">
                                         <h4 class="cat_tit"><a href="#" class="cat_tit_link"><strong>图书上新</strong></a><span class="s_arrow">></span></h4>
+                                        <div class="cat_cont">
+                                            <div class="cat_cont_lft">
+                                                <dl class="cf">
+                                                    <dt><a href="#">文艺类上新</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">人文类上新</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">教育类上新</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">科学类上新</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">生活类上新</a></dt>
+                                                </dl>
+
+                                                <dl class="cf">
+                                                    <dt><a href="#">经管类上新</a></dt>
+                                                </dl>
+
+                                            </div>
+
+
+                                        </div>
                                     </li>
                                     <li class="cat_item">
                                         <h4 class="cat_tit"><a href="#" class="cat_tit_link">...</a><span class="s_arrow">></span></h4>

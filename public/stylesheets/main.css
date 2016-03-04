@@ -63,7 +63,7 @@ a.more{color:#C11125;}
 .cat_cont_rgt dl{padding:8px 0 12px 0;zoom:1;line-height:20px;width:150px;}
 .cat_cont_rgt dt{font-weight:600;}
 .cat_on{border:2px solid  #7FAD7C;border-right:0;background:#fff;}
-.cat_cont{position:absolute;left:204px;top:-2px;border:2px solid #7FAD7C;width:690px;overflow:hidden;min-height:450px;z-index:10001;background:#fff;}
+.cat_cont{position:absolute;left:204px;top:27px;border:2px solid #7FAD7C;width:100px;overflow:hidden;z-index:10001;background:#fff;}
 .all_cats{padding:6px 10px 0 10px;}
 .hotp{height:175px;background:url(../images/hotbg.jpg) no-repeat;width:546px;position:relative;overflow:hidden;}
 .hotp .lft_icon{width:33px;height:175px;position:absolute;top:0;left:0;z-index:200;}
