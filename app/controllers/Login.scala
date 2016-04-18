@@ -54,7 +54,6 @@ object LogIn extends Controller{
         }
       }
     )
-
   }
 
   def form = Action {
